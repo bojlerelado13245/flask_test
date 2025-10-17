@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flask test</title>
+
+    <!-- Topbar color for iOS Safari and Android -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="theme-color" content="#ffffff" />
+    <!-- Purple -->
+
+    <link rel="stylesheet" href="style.css" />
+    <script src="ajax.js" defer></script>
+  </head>
+
+  <body>
+    <div class="card">
+      <h2>Flask test</h2>
+
+      <input type="text" id="username" placeholder="Username" />
+      <input type="email" id="email" placeholder="Email" />
+      <button onclick="submitForm()">Submit</button>
+
+      <p id="output"></p>
+
+      <div id="sql">
+        <!-- Initial table example -->
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Username</th>
+              <th>Email</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Alice</td>
+              <td>alice@example.com</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Bob</td>
+              <td>bob@example.com</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Charlie</td>
+              <td>charlie@example.com</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
