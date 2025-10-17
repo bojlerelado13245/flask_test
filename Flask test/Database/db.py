@@ -31,3 +31,17 @@ def get_all_users():
             users = [{'id': row[0], 'username': row[1], 'email': row[2]} for row in cursor.fetchall()]
             conn.close()
             return users
+
+def delete_user(userid):
+            """Delete a user by ID."""
+            conn = sqlite3.connect(DB_PATH)
+            conn.execute('DELETE FROM users WHERE id = ?', (userid,))
+            conn.commit()
+            conn.close()
+
+def update_user(userid, username, email):
+            """Update a user's information by ID."""
+            conn = sqlite3.connect(DB_PATH)
+            conn.execute('UPDATE users SET username = ?, email = ? WHERE id = ?', (username, email, userid))
+            conn.commit()
+            conn.close()

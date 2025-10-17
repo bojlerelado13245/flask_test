@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Flask test post</title>
+    <title>Flask test delete</title>
 
     <!-- Topbar color for iOS Safari and Android -->
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
@@ -18,12 +18,11 @@
     <div class="card">
       <h2>Flask test</h2>
 
-      <input type="text" id="username" placeholder="Username" />
-      <input type="email" id="email" placeholder="Email" />
-      <button onclick="submitForm()">Submit</button>
+      <input type="number" id="userid" placeholder="Id" />
+
+      <button onclick="deleteUser()">Delete</button>
 
       <p id="output"></p>
-
       <div id="sql">
         <!-- Initial table example -->
         <table>

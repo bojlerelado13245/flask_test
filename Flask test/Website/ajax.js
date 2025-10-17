@@ -23,6 +23,57 @@ function submitForm() {
     });
 }
 
+function updateForm() {
+  const userid = document.getElementById("userid").value;
+  const username = document.getElementById("username").value;
+  const email = document.getElementById("email").value;
+  if (!userid || !username || !email) {
+    document.getElementById("output").textContent =
+      "Error: User ID, username and email are required.";
+    return;
+  }
+  fetch("http://127.0.0.1:5000/update", {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ userid, username, email }),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      document.getElementById(
+        "output"
+      ).textContent = `Server response: ${data.message}`;
+      getSql(); // Refresh the table
+    })
+    .catch((err) => {
+      document.getElementById("output").textContent = `Error: ${err.message}`;
+    });
+}
+
+function deleteUser() {
+  const userid = document.getElementById("userid").value;
+  if (!userid) {
+    document.getElementById("output").textContent =
+      "Error: User ID is required.";
+    return;
+  }
+  fetch("http://127.0.0.1:5000/delete", {
+    method: "DELETE",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ userid }),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      document.getElementById(
+        "output"
+      ).textContent = `Server response: ${data.message}`;
+      getSql();
+      //window.location.href = "index.html";
+    })
+    .catch((err) => {
+      document.getElementById("output").textContent = `Error: ${err.message}`;
+    });
+}
+
 function getSql() {
   fetch("http://127.0.0.1:5000/get_sql", {
     method: "GET",
